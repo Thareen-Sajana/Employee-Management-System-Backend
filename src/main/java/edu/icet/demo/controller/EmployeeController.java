@@ -5,6 +5,7 @@ import edu.icet.demo.service.EmployeeService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class EmployeeController {
     private final EmployeeService service;
 
     @PostMapping("add")
+    @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody Employee employee){
         service.addEmployee(employee);
     }
@@ -26,4 +28,12 @@ public class EmployeeController {
     public List<Employee> getAll(){
         return service.getAll();
     }
+
+    @DeleteMapping("delete/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String delete(@PathVariable Long id){
+        service.deleteEmployee(id);
+        return "Deleted";
+    }
+
 }
