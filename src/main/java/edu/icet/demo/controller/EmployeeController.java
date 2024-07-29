@@ -1,7 +1,6 @@
-package edu.icet.demo.employeeController;
+package edu.icet.demo.controller;
 
 import edu.icet.demo.dto.Employee;
-import edu.icet.demo.entity.EmployeeEntity;
 import edu.icet.demo.service.EmployeeService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,7 @@ public class EmployeeController {
     }
 
     @GetMapping("all")
-    public List<EmployeeEntity> getAll(){
+    public List<Employee> getAll(){
         return service.getAll();
     }
 }
