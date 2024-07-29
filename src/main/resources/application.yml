@@ -3,3 +3,7 @@ spring:
     url: jdbc:mysql://localhost:3306/emp_crm
     username: root
     password: thareen123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
